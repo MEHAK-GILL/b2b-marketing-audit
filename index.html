@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>B2B Marketing Audit — WhiteSpace Thinking</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --teal: #4495A2;
+  --teal-dark: #2d6b75;
+  --teal-light: #d4edf1;
+  --green: #7CA655;
+  --green-light: #e8f3df;
+  --yellow: #F9D448;
+  --yellow-dark: #c9a800;
+  --yellow-light: #fef9df;
+  --off-white: #f9f7f3;
+  --dark: #1a1a18;
+  --mid: #3d3d38;
+  --muted: #7a7a72;
+  --border: #e5e0d8;
+  --white: #ffffff;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--off-white);
+  color: var(--dark);
+  line-height: 1.6;
+  padding-bottom: 80px;
+}
+
+/* NAV */
+nav {
+  background: var(--white);
+  border-bottom: 2px solid var(--border);
+  padding: 16px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--teal);
+}
+.logo span { color: var(--dark); }
+.nav-pill {
+  background: var(--yellow);
+  color: var(--dark);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  animation: pulse-badge 2.5s ease-in-out infinite;
+}
+@keyframes pulse-badge {
+  0%,100% { box-shadow: 0 0 0 0 rgba(249,212,72,0.6); }
+  50%      { box-shadow: 0 0 0 8px rgba(249,212,72,0); }
+}
+
+/* HERO */
+.hero {
+  background: var(--white);
+  border-bottom: 2px solid var(--border);
+  padding: 72px 48px 64px;
+}
+.hero-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 22px;
+}
+.hero-tag-badge {
+  background: #e8504a;
+  color: white;
+  font-size: 0.6rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 5px;
+  letter-spacing: 0.03em;
+}
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--dark);
+  letter-spacing: -0.03em;
+  margin-bottom: 20px;
+}
+.hero h1 em { color: var(--teal); font-style: italic; }
+.hero-sub {
+  font-size: 1.05rem;
+  color: var(--mid);
+  line-height: 1.8;
+  font-weight: 300;
+  margin-bottom: 20px;
+  max-width: 480px;
+}
+.hero-support {
+  font-size: 0.88rem;
+  color: var(--teal);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hero-support::before {
+  content: '';
+  display: block;
+  width: 28px; height: 2px;
+  background: var(--yellow);
+  flex-shrink: 0;
+}
+
+/* Promo card — right side, mirrors image 2 */
+.hero-promo-card {
+  background: var(--white);
+  border: 2px solid var(--border);
+  border-radius: 22px;
+  padding: 44px 40px 36px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.07);
+}
+.hero-promo-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--teal), var(--green), var(--yellow));
+}
+.hpc-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 18px;
+}
+.hpc-tag-badge {
+  background: #e8504a;
+  color: white;
+  font-size: 0.55rem;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-weight: 800;
+}
+.hpc-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+  font-weight: 900;
+  color: var(--dark);
+  line-height: 1.2;
+  margin-bottom: 28px;
+  letter-spacing: -0.02em;
+}
+.hpc-code-box {
+  border: 3px dashed var(--yellow-dark);
+  background: var(--yellow-light);
+  border-radius: 12px;
+  padding: 14px 40px;
+  display: inline-block;
+  margin-bottom: 22px;
+}
+.hpc-code {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.1rem;
+  font-weight: 900;
+  color: #9a7700;
+  letter-spacing: 0.06em;
+}
+.hpc-orig {
+  font-size: 1.2rem;
+  color: #bbb;
+  text-decoration: line-through;
+  margin-bottom: 2px;
+  font-weight: 400;
+}
+.hpc-final {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.2rem;
+  font-weight: 900;
+  color: var(--green);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.hpc-note { font-size: 0.8rem; color: var(--muted); font-style: italic; margin-bottom: 10px; }
+.hpc-arrow {
+  display: inline-block;
+  font-size: 0.82rem;
+  color: var(--teal);
+  font-weight: 600;
+  animation: bounce 1.8s ease-in-out infinite;
+}
+@keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(4px)} }
+
+/* SHARED SECTION */
+.section-wrap { max-width: 1100px; margin: 0 auto; }
+.eyebrow {
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 10px;
+  display: block;
+}
+.section-h {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 900;
+  color: var(--dark);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+.section-p { font-size: 1rem; color: var(--muted); font-weight: 300; line-height: 1.75; max-width: 580px; }
+
+/* SECTION 2: TIERS */
+.tiers-section { padding: 84px 48px; background: var(--off-white); }
+.tiers-header { margin-bottom: 48px; }
+.tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-bottom: 28px;
+}
+.tier-card {
+  background: var(--white);
+  border-radius: 18px;
+  border: 2px solid var(--border);
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+.tier-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,0.09); }
+.tier-card.featured {
+  border-color: var(--teal);
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(68,149,162,0.2);
+}
+.tier-card.featured:hover { transform: translateY(-9px); }
+.tier-ribbon {
+  padding: 7px 16px;
+  font-size: 0.63rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+}
+.tier-card.featured .tier-ribbon { background: var(--yellow); color: var(--dark); }
+.tier-card.dimmed  .tier-ribbon { background: var(--teal-light); color: var(--teal-dark); }
+.tier-head { padding: 24px 26px 18px; border-bottom: 1px solid var(--border); }
+.tier-card.featured .tier-head { background: var(--teal); }
+.t-name { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+.tier-card.featured .t-name { color: var(--white); }
+.t-tag { font-size: 0.84rem; color: var(--muted); font-style: italic; }
+.tier-card.featured .t-tag { color: rgba(255,255,255,0.72); }
+.tier-body { padding: 22px 26px 26px; }
+.t-features { list-style: none; margin-bottom: 20px; }
+.t-features li {
+  font-size: 0.86rem; color: var(--mid);
+  padding: 7px 0; border-bottom: 1px solid var(--border);
+  display: flex; gap: 10px; line-height: 1.5;
+}
+.t-features li:last-child { border-bottom: none; }
+.ic { flex-shrink: 0; font-size: 0.82rem; margin-top: 2px; }
+.ic.green { color: var(--green); font-weight: 700; }
+.ic.soft  { color: #ccc; }
+.t-price { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--dark); margin-bottom: 4px; }
+.t-price.free   { color: var(--green); }
+.t-price.custom { font-size: 1.4rem; color: var(--teal); }
+.t-delivery { font-size: 0.76rem; color: var(--muted); margin-bottom: 14px; }
+.upgrade-chip {
+  font-size: 0.77rem; color: var(--teal); font-style: italic;
+  background: var(--teal-light); border-radius: 8px;
+  padding: 8px 12px; margin-bottom: 16px; line-height: 1.5;
+}
+.btn-cta {
+  display: block; width: 100%; border: none; border-radius: 10px;
+  padding: 13px 20px; font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem; font-weight: 700; text-align: center;
+  cursor: pointer; text-decoration: none; transition: all 0.2s;
+}
+.btn-cta.yellow { background: var(--yellow); color: var(--dark); }
+.btn-cta.yellow:hover { background: var(--yellow-dark); color: white; transform: translateY(-1px); }
+.btn-cta.ghost { background: transparent; color: var(--muted); border: 1.5px solid var(--border); }
+.btn-cta.ghost:hover { border-color: var(--teal); color: var(--teal); background: var(--teal-light); }
+.tiers-note {
+  text-align: center; font-size: 0.85rem; color: var(--muted);
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 12px; padding: 14px 24px;
+  max-width: 700px; margin: 0 auto;
+}
+.tiers-note strong { color: var(--teal); }
+.learn-more-btn {
+  display: inline-block;
+  background: var(--teal);
+  color: white;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 13px 36px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  letter-spacing: 0.02em;
+}
+.learn-more-btn:hover { background: var(--teal-dark); transform: translateY(-2px); }
+
+/* SECTION 3 */
+.snap-section { padding: 84px 48px; background: var(--white); border-top: 2px solid var(--border); }
+.snap-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+.snap-features { list-style: none; margin: 28px 0; }
+.snap-features li {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 12px 0; border-bottom: 1px solid var(--border);
+  font-size: 0.93rem; color: var(--mid); line-height: 1.5;
+}
+.snap-features li:last-child { border-bottom: none; }
+.s-dot {
+  width: 26px; height: 26px; background: var(--green); border-radius: 50%;
+  color: white; font-size: 0.7rem; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+}
+.snap-delivery {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--green-light); border-left: 4px solid var(--green);
+  padding: 10px 16px; border-radius: 0 8px 8px 0;
+  font-size: 0.85rem; color: var(--mid); font-weight: 500;
+}
+
+/* Payment widget */
+.pw { background: var(--dark); border-radius: 20px; overflow: hidden; box-shadow: 0 24px 64px rgba(0,0,0,0.2); position: sticky; top: 80px; }
+.pw-top { padding: 28px 30px 22px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.pw-ey { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--yellow); margin-bottom: 7px; }
+.pw-ttl { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: white; line-height: 1.3; }
+.pw-bd { padding: 26px 30px 28px; }
+.pw-prices { display: flex; align-items: baseline; gap: 14px; margin-bottom: 22px; }
+.pw-orig-p { font-size: 1.1rem; color: rgba(255,255,255,0.3); text-decoration: line-through; }
+.pw-final-p { font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900; color: white; line-height: 1; transition: color 0.4s; }
+.pw-final-p.zero { color: var(--green); }
+.promo-row { display: flex; gap: 10px; margin-bottom: 10px; }
+.p-input {
+  flex: 1; background: rgba(255,255,255,0.07);
+  border: 1.5px solid rgba(255,255,255,0.14); border-radius: 10px;
+  padding: 12px 16px; font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem; color: white; text-transform: uppercase;
+  letter-spacing: 0.07em; outline: none; transition: border-color 0.2s;
+}
+.p-input::placeholder { color: rgba(255,255,255,0.28); font-size: 0.82rem; letter-spacing: 0.03em; }
+.p-input:focus   { border-color: var(--teal); }
+.p-input.valid   { border-color: var(--green); background: rgba(124,166,85,0.12); }
+.p-input.invalid { border-color: #e05252; background: rgba(224,82,82,0.1); }
+.btn-apply {
+  background: var(--teal); color: white; border: none; border-radius: 10px;
+  padding: 12px 18px; font-family: 'DM Sans', sans-serif;
+  font-size: 0.86rem; font-weight: 700; cursor: pointer; transition: background 0.2s; white-space: nowrap;
+}
+.btn-apply:hover { background: var(--teal-dark); }
+.p-msg { font-size: 0.8rem; min-height: 20px; margin-bottom: 16px; font-weight: 600; transition: all 0.3s; }
+.p-msg.ok  { color: var(--green); }
+.p-msg.err { color: #e05252; }
+#paypal-area { display: none; margin-bottom: 12px; animation: su 0.4s ease; }
+#paypal-area.show { display: block; }
+#booking-area { display: none; animation: su 0.4s ease; }
+#booking-area.show { display: block; }
+@keyframes su { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+.paypal-btn {
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  width: 100%; background: #0070ba; color: white; border-radius: 10px;
+  padding: 14px 20px; font-size: 0.93rem; font-weight: 700;
+  text-decoration: none; border: none; cursor: pointer;
+  font-family: 'DM Sans', sans-serif; transition: background 0.2s;
+}
+.paypal-btn:hover { background: #005ea6; }
+.booking-btn {
+  display: block; width: 100%; background: var(--yellow); color: var(--dark);
+  border: none; border-radius: 10px; padding: 14px 20px;
+  font-family: 'DM Sans', sans-serif; font-size: 0.93rem; font-weight: 700;
+  text-align: center; cursor: pointer; text-decoration: none; transition: all 0.2s;
+}
+.booking-btn:hover { background: var(--yellow-dark); color: white; }
+.pw-foot { font-size: 0.71rem; color: rgba(255,255,255,0.3); text-align: center; margin-top: 14px; display: flex; align-items: center; justify-content: center; gap: 5px; }
+
+/* STICKY BAR */
+.sticky-bar {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: var(--dark); z-index: 999;
+  padding: 0 40px; height: 70px;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  border-top: 3px solid var(--teal);
+  box-shadow: 0 -8px 32px rgba(0,0,0,0.28);
+  animation: barUp 0.6s 0.4s both ease;
+}
+@keyframes barUp { from{transform:translateY(100%)} to{transform:translateY(0)} }
+.sb-left { display: flex; align-items: center; gap: 18px; }
+.sb-prices { display: flex; align-items: baseline; gap: 10px; }
+.sb-orig { font-size: 1rem; color: rgba(255,255,255,0.3); text-decoration: line-through; }
+.sb-final { font-family: 'Playfair Display', serif; font-size: 1.75rem; font-weight: 900; color: var(--green); line-height: 1; }
+.sb-div { width: 1px; height: 28px; background: rgba(255,255,255,0.1); }
+.sb-code-label { font-size: 0.6rem; color: rgba(255,255,255,0.4); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2px; }
+.sb-code-val   { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; color: var(--yellow); letter-spacing: 0.05em; }
+.sb-right { display: flex; align-items: center; gap: 10px; }
+.sb-input {
+  background: rgba(255,255,255,0.07); border: 1.5px solid rgba(255,255,255,0.14);
+  border-radius: 8px; padding: 9px 14px; font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem; color: white; text-transform: uppercase; letter-spacing: 0.07em;
+  outline: none; width: 130px; transition: border-color 0.2s;
+}
+.sb-input::placeholder { color: rgba(255,255,255,0.3); font-size: 0.75rem; }
+.sb-input:focus   { border-color: var(--teal); }
+.sb-input.valid   { border-color: var(--green); }
+.sb-input.invalid { border-color: #e05252; }
+.sb-btn {
+  background: var(--teal); color: white; border: none; border-radius: 8px;
+  padding: 10px 22px; font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem; font-weight: 700; cursor: pointer; transition: all 0.2s; white-space: nowrap;
+}
+.sb-btn:hover { background: var(--teal-dark); transform: translateY(-1px); }
+.sb-btn.activated { background: var(--green); animation: pop 0.3s ease; }
+@keyframes pop { 0%{transform:scale(1)} 50%{transform:scale(1.07)} 100%{transform:scale(1)} }
+
+footer { background: #111; color: rgba(255,255,255,0.3); text-align: center; padding: 22px 40px; font-size: 0.74rem; }
+
+@media (max-width: 820px) {
+  nav { padding: 14px 20px; }
+  .hero { padding: 48px 20px 48px; }
+  .hero-inner, .snap-layout { grid-template-columns: 1fr; gap: 36px; }
+  .tiers-section, .snap-section { padding: 56px 20px; }
+  .tiers-grid { grid-template-columns: 1fr; }
+  .tier-card.featured { transform: none; }
+  .pw { position: static; }
+  .sticky-bar { padding: 0 16px; }
+  .sb-input { width: 100px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">WhiteSpace<span> Thinking</span></div>
+  <div class="nav-pill">🎫 House Event Exclusive</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag"><span class="hero-tag-badge">ADMIT ONE</span> House Event Exclusive</div>
+      <h1>B2B Marketing<br/><em>Audit</em></h1>
+      <p class="hero-sub">The B2B Marketing Audit Solution offered by WhiteSpace Thinking is a structured diagnostic that reveals exactly what's working, what's wasted, and where your biggest growth opportunity lives.</p>
+      <div class="hero-support">Led directly by a Fractional CMO — not a junior team.</div>
+    </div>
+    <div class="hero-promo-card">
+      <div class="hpc-tag"><span class="hpc-tag-badge">ADMIT ONE</span> House Event Exclusive</div>
+      <div class="hpc-headline">Get a $299 Audit Workshop —<br/>On Us</div>
+      <div class="hpc-code-box"><div class="hpc-code">HOUSE26</div></div>
+      <div class="hpc-orig">$299</div>
+      <div class="hpc-final">$0</div>
+      <div class="hpc-note">Use the code at checkout below</div>
+      <div class="hpc-arrow">↓ Scroll to claim</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: TIERS -->
+<section class="tiers-section">
+  <div class="section-wrap">
+    <div class="tiers-header">
+      <span class="eyebrow">Our Offering</span>
+      <h2 class="section-h">Three Tiers. One Clear Direction.</h2>
+      <p class="section-p">Every tier is a complete, structured engagement. Start where you are.</p>
+    </div>
+    <div class="tiers-grid">
+
+      <!-- Snapshot -->
+      <div class="tier-card featured">
+        <div class="tier-ribbon">🎫 Available Today — Use HOUSE26</div>
+        <div class="tier-head">
+          <div class="t-name">Snapshot</div>
+          <div class="t-tag">Your marketing in focus — fast</div>
+        </div>
+        <div class="tier-body">
+          <ul class="t-features">
+            <li><span class="ic green">✓</span> Pre-Assessment using WhiteSpace's audit framework</li>
+            <li><span class="ic green">✓</span> Live 60-min diagnostic session with Shruti</li>
+            <li><span class="ic green">✓</span> Top 3 growth gaps identified</li>
+            <li><span class="ic green">✓</span> Written findings document</li>
+            <li><span class="ic green">✓</span> Recommended next steps for your stage</li>
+          </ul>
+          <div class="t-price free">$0 <span style="font-size:1rem;color:var(--muted);text-decoration:line-through;font-family:'DM Sans',sans-serif;font-weight:400;">$299</span></div>
+          <div class="t-delivery">⚡ Delivered within 3 business days</div>
+          <a href="#snapshot-form" class="btn-cta yellow">Claim Free with HOUSE26 ↓</a>
+        </div>
+      </div>
+
+      <!-- Clarity -->
+      <div class="tier-card dimmed">
+        <div class="tier-ribbon">Upgrade Available</div>
+        <div class="tier-head">
+          <div class="t-name">Clarity</div>
+          <div class="t-tag">From diagnosis to direction</div>
+        </div>
+        <div class="tier-body">
+          <ul class="t-features">
+            <li><span class="ic green">✓</span> Everything in Snapshot</li>
+            <li><span class="ic soft">＋</span> Deeper written audit report</li>
+            <li><span class="ic soft">＋</span> Channel-by-channel performance review</li>
+            <li><span class="ic soft">＋</span> Deep 90-min strategy session</li>
+            <li><span class="ic soft">＋</span> Prioritised 90-day action roadmap</li>
+          </ul>
+          <div class="t-price">$599</div>
+          <div class="t-delivery">Delivered within 7 business days</div>
+          <div class="upgrade-chip">💬 Start with Snapshot — your session counts toward Clarity. You only pay the difference.</div>
+          <a href="/cdn-cgi/l/email-protection#462e232a2a2906312e2f32233536272523322e2f282d2f28216825292b793533242c2325327b1336213427222366322966052a27342f323f" class="btn-cta ghost">Speak to Us About Upgrading</a>
+        </div>
+      </div>
+
+      <!-- WhiteSpace -->
+      <div class="tier-card dimmed">
+        <div class="tier-ribbon">Upgrade Available</div>
+        <div class="tier-head">
+          <div class="t-name">The WhiteSpace</div>
+          <div class="t-tag">The full transformation</div>
+        </div>
+        <div class="tier-body">
+          <ul class="t-features">
+            <li><span class="ic green">✓</span> Everything in Clarity</li>
+            <li><span class="ic soft">＋</span> Competitive landscape analysis</li>
+            <li><span class="ic soft">＋</span> Market positioning &amp; elevator pitch</li>
+            <li><span class="ic soft">＋</span> 30-60-90 day action plans</li>
+            <li><span class="ic soft">＋</span> Full-day leadership workshop</li>
+          </ul>
+          <div class="t-price custom">Custom Pricing</div>
+          <div class="t-delivery">Scoped per engagement</div>
+          <div class="upgrade-chip">💬 Most clients start with Snapshot and grow into The WhiteSpace.</div>
+          <a href="/cdn-cgi/l/email-protection#234b464f4f4c63544b4a57465053424046574b4a4d484a4d440d404c4e1c505641494640571e774b4603744b4a5746705342404603774a4651" class="btn-cta ghost">Speak to Us About Upgrading</a>
+        </div>
+      </div>
+
+    </div>
+    <div class="tiers-note">
+      <strong>Snapshot is available today</strong> with your House Event promo code. <strong>Clarity and The WhiteSpace</strong> are available year-round — speak to us about upgrading. Your Snapshot session counts toward the next tier.
+    </div>
+    <div style="text-align:center;margin-top:32px;">
+      <a href="https://www.whitespacethinking.org/pagema" target="_blank" class="learn-more-btn">Learn More →</a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: CLAIM -->
+<section class="snap-section" id="snapshot-form">
+  <div class="section-wrap">
+    <div class="snap-layout">
+      <div>
+        <span class="eyebrow">Claim Your Snapshot</span>
+        <h2 class="section-h">Get Snapshot<br/>Free Today</h2>
+        <p class="section-p">Use code <strong>HOUSE26</strong> to claim your $299 Snapshot Audit — completely on us. Led directly by Shruti Batra, not a junior team.</p>
+        <ul class="snap-features">
+          <li><span class="s-dot">1</span>Pre-Assessment using WhiteSpace Thinking's time-tested audit framework</li>
+          <li><span class="s-dot">2</span>Live 60-min diagnostic session with Shruti Batra, Fractional CMO</li>
+          <li><span class="s-dot">3</span>Your top 3 growth gaps identified and clearly articulated</li>
+          <li><span class="s-dot">4</span>Written findings document you can act on immediately</li>
+          <li><span class="s-dot">5</span>Recommended next steps tailored to your business stage</li>
+        </ul>
+       
+      </div><!-- end left column -->
+
+      <!-- RIGHT column: dark payment widget -->
+      <div class="pw">
+        <div class="pw-top">
+          <div class="pw-ey">House Event Exclusive</div>
+          <div class="pw-ttl">Claim Your <span style="text-decoration:line-through;opacity:0.45;">$299</span> <span style="color:var(--yellow);">FREE</span> Audit<br/>Workshop — On Us</div>
+        </div>
+        <div class="pw-bd">
+          <div class="pw-prices">
+            <div class="pw-orig-p">$299</div>
+            <div class="pw-final-p zero" id="widgetPrice">$0</div>
+          </div>
+          <div class="promo-row">
+            <input class="p-input" id="promoInput" type="text" placeholder="Enter code e.g. HOUSE26" maxlength="10" autocomplete="off"/>
+            <button class="btn-apply" onclick="applyPromo()">Apply</button>
+          </div>
+          <div class="p-msg" id="promoMsg"></div>
+          <div id="paypal-area">
+            <a href="YOUR_PAYPAL_LINK_HERE" class="paypal-btn" target="_blank" onclick="onPayPal()">💳 &nbsp;Pay $0 via PayPal</a>
+            <p style="font-size:0.71rem;color:rgba(255,255,255,0.3);text-align:center;margin-top:9px;">You'll be charged $0.00 — confirm on PayPal then return here.</p>
+          </div>
+          <div id="booking-area">
+            <a href="YOUR_CALENDLY_LINK_HERE" class="booking-btn" target="_blank">📅 &nbsp;Book Your 60-Min Session with Shruti</a>
+          </div>
+          <div class="pw-foot">🔒 Secure checkout · $0 with HOUSE26 · No card stored</div>
+        </div>
+      </div><!-- end right column / pw -->
+
+    </div><!-- end snap-layout -->
+  </div><!-- end section-wrap -->
+</section>
+
+<footer>© 2026 WhiteSpace Thinking · B2B Marketing Studio &amp; Fractional CMO Practice · Texas, USA</footer>
+
+<!-- STICKY BAR -->
+<div class="sticky-bar">
+  <div class="sb-left">
+    <div class="sb-prices">
+      <span class="sb-orig">$299</span>
+      <span class="sb-final">$0</span>
+    </div>
+    <div class="sb-div"></div>
+    <div>
+      <div class="sb-code-label">Promo Code</div>
+      <div class="sb-code-val">HOUSE26</div>
+    </div>
+  </div>
+  <div class="sb-right">
+    <input class="sb-input" id="stickyInput" type="text" placeholder="Enter code" maxlength="10" autocomplete="off"/>
+    <button class="sb-btn" id="stickyBtn" onclick="stickyEnroll()">Enroll Now →</button>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const CODE = 'HOUSE26';
+
+function applyPromo() {
+  const inp = document.getElementById('promoInput');
+  const msg = document.getElementById('promoMsg');
+  const price = document.getElementById('widgetPrice');
+  const val = inp.value.trim().toUpperCase();
+  if (val === CODE) {
+    inp.classList.add('valid'); inp.classList.remove('invalid');
+    msg.textContent = '🎉 Code applied! Your Snapshot is now FREE.';
+    msg.className = 'p-msg ok';
+    price.textContent = '$0'; price.classList.add('zero');
+    setTimeout(() => { document.getElementById('paypal-area').classList.add('show'); }, 350);
+  } else {
+    inp.classList.add('invalid'); inp.classList.remove('valid');
+    msg.textContent = '✗ Invalid code. Try HOUSE26';
+    msg.className = 'p-msg err';
+    document.getElementById('paypal-area').classList.remove('show');
+  }
+}
+function onPayPal() {
+  setTimeout(() => { document.getElementById('booking-area').classList.add('show'); }, 1200);
+}
+document.getElementById('promoInput').addEventListener('keydown', e => { if (e.key === 'Enter') applyPromo(); });
+
+function stickyEnroll() {
+  const inp = document.getElementById('stickyInput');
+  const btn = document.getElementById('stickyBtn');
+  const val = inp.value.trim().toUpperCase();
+  if (val === CODE) {
+    inp.classList.add('valid'); inp.classList.remove('invalid');
+    btn.textContent = '✓ Applied!'; btn.classList.add('activated');
+    document.getElementById('promoInput').value = CODE;
+    applyPromo();
+    setTimeout(() => document.getElementById('snapshot-form').scrollIntoView({ behavior: 'smooth', block: 'start' }), 300);
+  } else if (val === '') {
+    document.getElementById('snapshot-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } else {
+    inp.classList.add('invalid'); inp.classList.remove('valid');
+    btn.textContent = '✗ Invalid';
+    setTimeout(() => { btn.textContent = 'Enroll Now →'; btn.classList.remove('activated'); }, 1800);
+  }
+}
+document.getElementById('stickyInput').addEventListener('keydown', e => { if (e.key === 'Enter') stickyEnroll(); });
+document.getElementById('promoInput').addEventListener('input', function() { document.getElementById('stickyInput').value = this.value; });
+document
