@@ -43,6 +43,7 @@
       background: var(--teal); color: #fff;
       font-size: .72rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
       padding: 9px 18px; border-radius: var(--r); text-decoration: none; transition: .18s;
+      cursor: pointer;
     }
     .nav-btn:hover { background: var(--teal-d); transform: translateY(-1px); }
     .nav-pill { background: var(--yellow); color: var(--ink); font-size: .6rem; font-weight: 700; padding: 2px 7px; border-radius: 20px; letter-spacing: .04em; }
@@ -121,6 +122,7 @@
       font-size: .83rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase;
       padding: 15px 28px; border-radius: var(--r); text-decoration: none; transition: .18s;
       align-self: flex-start;
+      cursor: pointer;
     }
     .btn-hero:hover { background: var(--teal-d); transform: translateY(-2px); box-shadow: 0 8px 22px rgba(68,149,162,.3); }
     .hero-micro { font-size: .7rem; color: var(--ink-30); margin-top: 10px; }
@@ -281,8 +283,8 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="logo">WhiteSpace<span>·</span>Thinking</a>
-  <!-- NOW SCROLLS TO BOOK SECTION -->
-  <a href="#book" class="nav-btn">Book Free Snapshot <span class="nav-pill">$0 Today</span></a>
+  <!-- CHANGE: removed href, added id for JS scroll -->
+  <a class="nav-btn" id="navBookBtn">Book Free Snapshot <span class="nav-pill">$0 Today</span></a>
 </nav>
 
 <!-- ── HERO ── -->
@@ -294,7 +296,7 @@
     <img src="hero.jpg.png" alt="Marketing Audit Image">
   </div>
 
-  <!-- Right: copy + CTA (SCROLLS) -->
+  <!-- Right: copy + CTA (SCROLLS via JS) -->
   <div class="hero-content">
     <div class="eyebrow">B2B Marketing Audit</div>
     <h1>Your marketing<br>might be <em>leaking</em><br>revenue.</h1>
@@ -312,8 +314,8 @@
       </div>
     </div>
 
-    <!-- NOW SCROLLS TO BOOK SECTION -->
-    <a href="#book" class="btn-hero">
+    <!-- CHANGE: removed href, added id for JS scroll -->
+    <a class="btn-hero" id="heroBookBtn">
       Book My Free Session
       <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7.5 2.5l4.5 4.5-4.5 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </a>
@@ -427,6 +429,16 @@
   const CAL_LINK = "https://outlook.office.com/bookwithme/user/acf8f9f5b064486d96ed8b579a8990b4@whitespacethinking.org/meetingtype/sLWTSZ2BSUSXFKgdt7sN_w2?anonymous&ismsaljsauthenabled&ep=mlink";
   const VALID_CODE = "HOUSE26";
 
+  // ✅ Only these two buttons scroll to #book
+  function scrollToBook(e) {
+    e.preventDefault();
+    document.getElementById("book").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  document.getElementById("navBookBtn").addEventListener("click", scrollToBook);
+  document.getElementById("heroBookBtn").addEventListener("click", scrollToBook);
+
+  // Promo / price logic
   const promo = document.getElementById("promo");
   const priceNow = document.getElementById("priceNow");
   const priceNote = document.getElementById("priceNote");
@@ -458,6 +470,7 @@
   promo.addEventListener("input", updatePrice);
   updatePrice();
 
+  // Form submit opens calendar (does NOT auto-open before submit)
   document.getElementById("bookingForm").addEventListener("submit", function(e){
     e.preventDefault();
 
