@@ -388,18 +388,18 @@
   <div class="book-card">
     <form id="bookingForm" class="book-form" autocomplete="on">
       <div class="form-row">
-        <label for="fullName">Full Name</label>
+        <label for="fullName*">Full Name</label>
         <input id="fullName" name="fullName" type="text" placeholder="Your name" required>
       </div>
 
       <div class="form-row">
-        <label for="email">Work Email</label>
+        <label for="email">Work Email*</label>
         <input id="email" name="email" type="email" placeholder="you@company.com" required>
       </div>
 
       <div class="form-row">
-        <label for="promo">Promo Code</label>
-        <input id="promo" name="promo" type="text" placeholder="Enter code (e.g., HOUSE26)">
+        <label for="promo">Promo Code*</label>
+        <input id="promo" name="promo" type="text" placeholder="Enter code">
         <div class="promo-hint" id="promoHint">Enter code to unlock $0.</div>
       </div>
 
@@ -414,7 +414,7 @@
       <button type="submit" class="btn-book" id="bookBtn">📅 &nbsp;Book Your Free Session →</button>
 
       <div class="b-trust">
-        <span>🔒 Secure</span><span>·</span><span>No card stored</span><span>·</span><span>60 min</span>
+        <span>🔒 Secure</span><span>·</span><span>No card stored</span><span>·</span><span>Above fields are required</span>
       </div>
     </form>
   </div>
